@@ -1,0 +1,43 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "a862bb16458650d421ad3859efbdbd38",
+    "entities": [
+      {
+        "tableName": "exchange_rates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`lastUpdatedDate` TEXT NOT NULL, `baseCurrency` TEXT NOT NULL, `exchangeRates` TEXT NOT NULL, PRIMARY KEY(`lastUpdatedDate`))",
+        "fields": [
+          {
+            "fieldPath": "lastUpdatedDate",
+            "columnName": "lastUpdatedDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "baseCurrency",
+            "columnName": "baseCurrency",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exchangeRates",
+            "columnName": "exchangeRates",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "lastUpdatedDate"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a862bb16458650d421ad3859efbdbd38')"
+    ]
+  }
+}
